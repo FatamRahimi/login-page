@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه ورود</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #4a148c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #121212, #1c1c1c);
+            color: #fff;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        body.dark-mode .login-container {
+            background-color: #444;
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f2f2f2;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        body.dark-mode label {
+            color: #ddd;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        /* آیکون‌های کنار فیلد */
+        .input-group .icon {
+            position: absolute;
+            right: 10px; /* موقعیت‌دهی آیکون در سمت راست */
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 18px; /* اندازه آیکون */
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 15px 40px 15px 15px; /* فضای سمت راست برای آیکون */
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #74ebd5;
+            background-color: #fff;
+            outline: none;
+        }
+
+        body.dark-mode input[type="text"], body.dark-mode input[type="password"] {
+            background-color: #333;
+            border-color: #888;
+            color: #fff;
+        }
+
+        .input-group.success input {
+            border-color: #28a745;
+        }
+
+        .input-group.success .checkmark {
+            display: block;
+        }
+
+        .checkmark {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+            color: #28a745;
+            font-size: 18px;
+        }
+
+        input[type="submit"] {
+            background-color: #800080;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5a005a;
+        }
+
+        body.dark-mode input[type="submit"] {
+            background-color: #555;
+        }
+
+        .login-container p {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        body.dark-mode .login-container p {
+            color: #aaa;
+        }
+
+        .login-container p a {
+            color: #800080;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-container p a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle-mode {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #800080;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body.dark-mode .toggle-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .flower-image {
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>ورود به حساب کاربری</h2>
+
+        <div class="profile-picture">
+            <img src="2.jfif" alt="پروفایل">
+        </div>
+        
+        <!-- فرم ورود -->
+        <form id="login-form" action="#" method="post">
+            <div class="input-group" id="username-group">
+                <label for="username">نام کاربری:</label>
+                <span class="icon">👤</span> <!-- آیکون نام کاربری -->
+                <input type="text" id="username" name="username" required>
+                <span class="checkmark">✔️</span>
+            </div>
+
+            <div class="input-group" id="password-group">
+                <label for="password">رمز عبور:</label>
+                <span class="icon">🔒</span> <!-- آیکون رمز عبور -->
+                <input type="password" id="password" name="password" required>
+                <span class="checkmark">✔️</span>
+            </div>
+
+            <input type="submit" value="ورود">
+        </form>
+        <p>حساب کاربری ندارید؟ <a href="thabtname.html">ثبت نام</a></p>
+
+        <button class="toggle-mode" id="toggleMode">🌙</button>
+    </div>
+
+    <script>
+        // سوئیچ بین حالت روشن و تاریک
+        const toggleButton = document.getElementById('toggleMode');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+
+            // تغییر ایموجی ماه و خورشید
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.textContent = '🌞';
+            } else {
+                toggleButton.textContent = '🌙';
+            }
+        });
+
+        // بررسی و نمایش علامت تیک
+        const inputGroups = document.querySelectorAll('.input-group');
+        inputGroups.forEach(group => {
+            const input = group.querySelector('input');
+            const checkmark = group.querySelector('.checkmark');
+
+            input.addEventListener('input', function() {
+                if (input.value.trim() !== '') {
+                    group.classList.add('success');
+                    checkmark.style.display = 'block';
+                } else {
+                    group.classList.remove('success');
+                    checkmark.style.display = 'none';
+                }
+            });
+        });
+
+        // بررسی طول رمز عبور
+        const loginForm = document.getElementById('login-form');
+        const passwordInput = document.getElementById('password');
+
+        loginForm.addEventListener('submit', function(event) {
+            if (passwordInput.value.length < 8) {
+                alert('رمز عبور باید حداقل ۸ کاراکتر باشد');
+                event.preventDefault();
+            } else {
+                const isConfirmed = confirm('مطمئن هستید؟');
+                if (!isConfirmed) {
+                    event.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
